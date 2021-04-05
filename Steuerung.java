@@ -10,10 +10,16 @@ public class Steuerung
 {
     private int anzahlScheiben = 0;
     private int anzahlSchritte = 0;
+    
     private ArrayList<Scheibe> scheiben = new ArrayList<>();
+    
     private Stack stapelStart = new Stack();
     private Stack stapelHilfe = new Stack();
     private Stack stapelZiel = new Stack();
+    
+    private int[] xStart = {20, 40, 60, 80, 100, 120, 140, 160, 180, 200};
+    private int[] xHilfe = {440, 460, 480, 500, 520, 540, 560, 580, 600, 620};
+    private int[] xZiel = {860, 880, 900, 920, 940, 960, 980, 1000, 1020, 1040};
 
     public void start() {
         anzahlScheiben = EinfachEingabe.getInt("Wie viele Scheiben soll die Simulation haben? (0 < n < 11)", 5);
@@ -32,13 +38,18 @@ public class Steuerung
         if (n==1) {
             scheibe = (Scheibe) start.pop();
             ziel.push(scheibe);
+            //bewegeZuZiel(scheibe);
+            anzahlSchritte++;
         } else {
+            
             scheibeBewegen(n-1, start, ziel, hilfe);
             scheibe = (Scheibe) start.pop();
             ziel.push(scheibe);
+            anzahlSchritte++;
+            bewegeZuHilfe(scheibe);
             scheibeBewegen(n-1, hilfe, start, ziel);
+            bewegeZuZiel(scheibe);
         }
-        anzahlSchritte++;
         System.out.println("<=====(Start)=====>");
         p(start);
         System.out.println("<=====(Hilfe)=====>");
@@ -98,15 +109,108 @@ public class Steuerung
     }
     
     private void bewegeZuStart(Scheibe scheibe) {
-        
+        switch(scheibe.getId()) {
+            case 1:
+            scheibe.positionAendern(20, 40*16);
+            break;
+            case 2:
+            scheibe.positionAendern(40, 40*15);
+            break;
+            case 3:
+            scheibe.positionAendern(60, 40*14);
+            break;
+            case 4:
+            scheibe.positionAendern(80, 40*13);
+            break;
+            case 5:
+            scheibe.positionAendern(100, 40*12);
+            break;
+            case 6:
+            scheibe.positionAendern(120, 40*11);
+            break;
+            case 7:
+            scheibe.positionAendern(140, 40*10);
+            break;
+            case 8:
+            scheibe.positionAendern(160, 40*9);
+            break;
+            case 9:
+            scheibe.positionAendern(180, 40*8);
+            break;
+            case 10:
+            scheibe.positionAendern(200, 40*7);
+            break;
+        }
     }
     
     private void bewegeZuHilfe(Scheibe scheibe) {
-    
+        switch(scheibe.getId()) {
+            case 1:
+            scheibe.positionAendern(440, 40*16);
+            break;
+            case 2:
+            scheibe.positionAendern(460, 40*15);
+            break;
+            case 3:
+            scheibe.positionAendern(480, 40*14);
+            break;
+            case 4:
+            scheibe.positionAendern(500, 40*13);
+            break;
+            case 5:
+            scheibe.positionAendern(520, 40*12);
+            break;
+            case 6:
+            scheibe.positionAendern(540, 40*11);
+            break;
+            case 7:
+            scheibe.positionAendern(560, 40*10);
+            break;
+            case 8:
+            scheibe.positionAendern(580, 40*9);
+            break;
+            case 9:
+            scheibe.positionAendern(600, 40*8);
+            break;
+            case 10:
+            scheibe.positionAendern(620, 40*7);
+            break;
+        }
     }
     
     private void bewegeZuZiel(Scheibe scheibe) {
-    
+        switch(scheibe.getId()) {
+            case 1:
+            scheibe.positionAendern(860, 40*16);
+            break;
+            case 2:
+            scheibe.positionAendern(880, 40*15);
+            break;
+            case 3:
+            scheibe.positionAendern(900, 40*14);
+            break;
+            case 4:
+            scheibe.positionAendern(920, 40*13);
+            break;
+            case 5:
+            scheibe.positionAendern(940, 40*12);
+            break;
+            case 6:
+            scheibe.positionAendern(960, 40*11);
+            break;
+            case 7:
+            scheibe.positionAendern(980, 40*10);
+            break;
+            case 8:
+            scheibe.positionAendern(1000, 40*9);
+            break;
+            case 9:
+            scheibe.positionAendern(1020, 40*8);
+            break;
+            case 10:
+            scheibe.positionAendern(1040, 40*7);
+            break;
+        }
     }
 
 }

@@ -214,4 +214,39 @@ public class Rechteck
       leinwand.entferne(this);
     }
   }
+  
+  public int getLaenge() {
+      return xGroesse;
+  }
+  public int getHoehe() {
+      return yGroesse;
+  }
+  public int getXPos() {
+      return xPosition;
+  }
+  public int getYPos() {
+      return yPosition;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
