@@ -116,19 +116,20 @@ public class Rechteck
 
     if (entfernung < 0)
     {
-      delta = -1;
+      delta = -10;
       entfernung = -entfernung;
     }
     else
     {
-      delta = 1;
+      delta = 10;
     }
 
-    for (int i = 0; i < entfernung; i++)
+    for (int i = 0; i < entfernung; i = i + 10)
     {
       xPosition += delta;
       zeichnen();
     }
+    pause(500);
   }
 
   /**
@@ -202,6 +203,13 @@ public class Rechteck
       leinwand.warte(10);
     }
   }
+  
+      private void pause(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (Exception e) {
+        }
+    }
 
   /*
    * L�sche dieses Quadrat vom Bildschirm.

@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Scheibe here.
  *
@@ -8,10 +7,16 @@
 public class Scheibe extends Rechteck
 {
     private int id;
+    private int aktuellePosition;
+    private int[] xPosStart = {20, 440, 860};
     
     public Scheibe(int id) {
         super();
         this.id = id;
+    }
+    
+    public void bewegeLangsamZuPos(int posNummer) {
+        
     }
     
     public void zuStart() {}
