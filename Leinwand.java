@@ -52,7 +52,7 @@ public class Leinwand
         if (leinwandSingleton == null)
         {
             leinwandSingleton =
-            new Leinwand("Türme von Hanoi", 1280, 720, Color.white);
+            new Leinwand("Türme von Hanoi", 1280, 720, Color.black);
         }
         leinwandSingleton.setzeSichtbarkeit(true);
         return leinwandSingleton;
